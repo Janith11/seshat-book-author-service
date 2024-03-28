@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: seshat-page-service
+  labels:
+    app: seshat-page-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: seshat-page-service
+  template:
+    metadata:
+      labels:
+        app: seshat-page-service
+    spec:
+      containers:
+        - name: seshat-page-service
+          image: gcr.io/seshat-417507/seshat-page-service:prod
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
+          readinessProbe:
+            httpGet:
+              port: 8080
+              path: /api/v1/seshat-page-service/actuator/health
+            initialDelaySeconds: 40
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              port: 8080
+              path: /api/v1/seshat-page-service/actuator/health
+            initialDelaySeconds: 40
+            periodSeconds: 10
+          resources:
+            requests:
+              cpu: "300m"
+              memory: "400Mi"
+            limits:
+              cpu: "500m"
+              memory: "512Mi"
