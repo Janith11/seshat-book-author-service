@@ -1,4 +1,4 @@
-name: Build and deploy to GKE ci cd flow
+name: seshat-book-author-service ci cd flow
 
 on:
   push:
@@ -8,15 +8,15 @@ on:
 
 env:
   PROJECT_ID: ${{secrets.GKE_PROJECT}}
-  GKE_CLUSTER: seshat
-  GKE_ZONE: us-central1-c
+  SI_CLUSTER: seshat
+  SI_ZONE: us-central1-c
   DEPLOYMENT_NAME: seshat-book-author-service
   IMAGE: seshat-book-author-service
   TAG: prod
 
 jobs:
   setup-build-publish-deploy:
-    name: Setup Build Publish Deploy test
+    name: Setup Build Publish Deploy
     runs-on: ubuntu-latest
 
     steps:
@@ -43,8 +43,8 @@ jobs:
       - name: Configure Docker in GKE
         run: gcloud --quiet auth configure-docker
 
-      - name: Get GKE Credentials GKE user
-        run: gcloud container clusters get-credentials "$GKE_CLUSTER" --zone "$GKE_ZONE"
+      - name: Get SI Credentials GKE
+        run: gcloud container clusters get-credentials "$SI_CLUSTER" --zone "$SI_ZONE"
 
       - name: Build Docker Image GCR
         run: |-
