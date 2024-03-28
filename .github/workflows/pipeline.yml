@@ -29,7 +29,7 @@ jobs:
           distribution: 'temurin'
           cache: maven
 
-      - name: Build with Maven With Test
+      - name: Build with Maven With Test1
         run: mvn clean install -DskipTests
 
       - name: Setup Google Cloud CLI
