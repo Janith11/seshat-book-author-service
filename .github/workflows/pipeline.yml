@@ -43,6 +43,9 @@ jobs:
       - name: Configure Docker in GKE
         run: gcloud --quiet auth configure-docker
 
+      - name: gcloud config set
+        run : gcloud config set account 'seshat-service@seshat-417507.iam.gserviceaccount.com'
+
       - name: Get SI Credentials GKE
         run: gcloud container clusters get-credentials "$SI_CLUSTER" --zone "$SI_ZONE"
 
