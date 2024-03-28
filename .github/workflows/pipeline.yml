@@ -7,7 +7,7 @@ on:
     branches: [ main ]
 
 env:
-  PROJECT_ID: ${{secrets.GKE_PROJECT}}
+  PROJECT_ID: 'seshat-417507'
   SI_CLUSTER: seshat
   SI_ZONE: us-central1-c
   DEPLOYMENT_NAME: seshat-book-author-service
