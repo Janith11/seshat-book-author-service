@@ -10,8 +10,8 @@ env:
   PROJECT_ID: ${{secrets.GKE_PROJECT}}
   GKE_CLUSTER: seshat
   GKE_ZONE: us-central1-c
-  DEPLOYMENT_NAME: seshat-page-service
-  IMAGE: seshat-page-service
+  DEPLOYMENT_NAME: seshat-book-author-service
+  IMAGE: seshat-book-author-service
   TAG: prod
 
 jobs:

@@ -1,35 +1,35 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: seshat-page-service
+  name: seshat-book-author-service
   labels:
-    app: seshat-page-service
+    app: seshat-book-author-service
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: seshat-page-service
+      app: seshat-book-author-service
   template:
     metadata:
       labels:
-        app: seshat-page-service
+        app: seshat-book-author-service
     spec:
       containers:
-        - name: seshat-page-service
-          image: gcr.io/seshat-417507/seshat-page-service:prod
+        - name: seshat-book-author-service
+          image: gcr.io/seshat-417507/seshat-book-author-service:prod
           imagePullPolicy: Always
           ports:
             - containerPort: 8080
           readinessProbe:
             httpGet:
               port: 8080
-              path: /api/v1/seshat-page-service/actuator/health
+              path: /api/v1/seshat-book-author-service/actuator/health
             initialDelaySeconds: 40
             periodSeconds: 10
           livenessProbe:
             httpGet:
               port: 8080
-              path: /api/v1/seshat-page-service/actuator/health
+              path: /api/v1/seshat-book-author-service/actuator/health
             initialDelaySeconds: 40
             periodSeconds: 10
           resources:

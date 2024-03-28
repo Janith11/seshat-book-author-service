@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: seshat-page-service
+  name: seshat-book-author-service
 spec:
   selector:
-    app: seshat-page-service
+    app: seshat-book-author-service
   type: NodePort
   ports:
     - protocol: TCP
