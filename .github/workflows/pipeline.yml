@@ -7,7 +7,7 @@ on:
     branches: [ main ]
 
 env:
-  PROJECT_ID: 'seshat-417507'
+  PROJECT_ID: ${{secrets.GKE_PROJECT}}
   SI_CLUSTER: seshat
   SI_ZONE: us-central1-c
   DEPLOYMENT_NAME: seshat-book-author-service
@@ -38,7 +38,7 @@ jobs:
           ACTIONS_ALLOW_UNSECURE_COMMANDS: true
         with:
           service_account_key: ${{secrets.GKE_SA_KEY}}
-          project_id: 'seshat-417507'
+          project_id: ${{secrets.GKE_PROJECT}}
 
       - name: Configure Docker in GKE
         run: gcloud --quiet auth configure-docker
