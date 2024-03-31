@@ -6,5 +6,6 @@ server:
 spring:
   data:
     mongodb:
-      uri: mongodb+srv://foodie:foodie@cluster0.t4mq9fc.mongodb.net/developer_iq_tracker?authSource=admin&replicaSet=atlas-bdifu0-shard-0&readPreference=primary&appname=MongoDB%20Compass&ssl=true
+      uri: mongodb+srv://janith20230370:RBD6zVuBwOjnmHR8@seshat.nrn4uu0.mongodb.net/seshat-KidLuma
+
 
