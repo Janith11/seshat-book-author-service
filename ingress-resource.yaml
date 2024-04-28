@@ -14,7 +14,7 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: seshat-page-service
+                name: seshat-page-service test
                 port:
                   number: 80
           - path: /api/v1/seshat-book-author-service
